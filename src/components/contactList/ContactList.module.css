@@ -1,8 +1,8 @@
-.contactList {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .contactItem {
-    margin-bottom: 8px;
-  }
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  margin-bottom: 10px;
+}

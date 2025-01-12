@@ -1,19 +1,30 @@
-import { MdOutlinePhone } from "react-icons/md";
+import PropTypes from "prop-types";
+import styles from "./Contact.module.css";
+import { FaPhoneAlt } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
-import css from "./Contact.module.css";
 
-const Contact = ({ data: { id, name, number }, onDelete }) => {
-  return (
-    <div className={css.contactCard}>
-      <div className={css.contactInfo}>
-        <p className={css.contactItem}><FaUser className={css.icon} /> {name}</p>
-        <p className={css.contactItem}><MdOutlinePhone className={css.icon} /> {number}</p>
+const Contact = ({ name, number, onDelete }) => (
+  <div className={styles.contactCard}>
+    <div className={styles.info}>
+      <div className={styles.name}>
+        <span className={styles.icon}><FaUser/></span>{" "}
+        {name}
       </div>
-      <button className={css.deleteButton} onClick={() => onDelete(id)}>
-        Delete
-      </button>
+      <div className={styles.number}>
+        <span className={styles.icon}><FaPhoneAlt/></span>{" "}
+        {number}
+      </div>
     </div>
-  );
+    <button className={styles.deleteButton} onClick={onDelete}>
+      Delete
+    </button>
+  </div>
+);
+
+Contact.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default Contact;
